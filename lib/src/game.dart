@@ -1,5 +1,6 @@
 import 'dart:html' show window;
 import 'package:phaser/phaser.dart';
+import 'package:js/js.dart';
 import 'package:js/js_util.dart';
 
 abstract class Sprites {
@@ -19,10 +20,10 @@ class ExampleGame {
         Phaser.AUTO,
         'phaser-example',
         jsify({
-          'preload': preload,
-          'create': create,
-          'update': update,
-          'render': render
+          'preload': allowInterop(preload),
+          'create': allowInterop(create),
+          'update': allowInterop(update),
+          'render': allowInterop(render)
         }));
   }
 
@@ -46,7 +47,7 @@ class ExampleGame {
       ..add('up', ArrayUtils.numberArray(12, 15), 5)
       ..add('down', ArrayUtils.numberArray(0, 3), 5)
       ..add('left', ArrayUtils.numberArray(4, 7), 5)
-      ..add('right', ArrayUtils.numberArray(7, 11), 5);
+      ..add('right', ArrayUtils.numberArray(8, 11), 5);
 
     // Center the player
     player
