@@ -28,7 +28,7 @@ class ExampleGame {
   }
 
   preload(Game game) {
-    game.load.spritesheet(Sprites.PLAYER, '/assets/character.png', 32, 48);
+    game.load.spritesheet(Sprites.PLAYER, 'assets/character.png', 32, 48);
   }
 
   create(Game game) {
